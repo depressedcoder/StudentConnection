@@ -23,7 +23,7 @@ namespace API.Entities
         public string StudentId { get; set; }
         public bool IsAlumni { get; set; }
         public ICollection<Photo> Photos { get; set; }
-
+        public string Interest { get; set; }
         // public int GetAge()
         // {
         //     return DateOfBirth.CalculateAge();

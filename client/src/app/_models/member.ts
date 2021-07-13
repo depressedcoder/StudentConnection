@@ -17,5 +17,6 @@ export interface Member {
     studentId: string;
     isAlumni: boolean;
     photos: Photo[];
+    interest: string;
 }
 

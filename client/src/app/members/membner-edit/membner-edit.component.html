@@ -43,6 +43,8 @@
                 <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
                     <h4>Description</h4>
                     <textarea class="form-control" [(ngModel)]="member.introduction" name="introduction" rows="6"></textarea>
+                    <h4>Interest Area</h4>
+                    <textarea class="form-control" [(ngModel)]="member.interest" name="interest" rows="6"></textarea>
                     <h3 class="mt-2">Location Details</h3>
                     <div class="form-inline">
                         <label for="city">City: </label>

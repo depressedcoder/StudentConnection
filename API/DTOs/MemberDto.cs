@@ -21,6 +21,7 @@ namespace API.DTOs
         public string StudentId { get; set; }
         public bool IsAlumni { get; set; }
         public ICollection<PhotoDto> Photos { get; set; }
+        public string Interest { get; set; }
 
     }
 }
