@@ -1,11 +1,13 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach",
-            "processId": "${command:pickProcess}"
+            "program": "${workspaceFolder}/API/bin/Debug/net5.0/API.dll",
+            "cwd": "${workspaceFolder}/API"
         },
         {
             "type": "chrome",
