@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace API.DTOs
@@ -6,6 +7,23 @@ namespace API.DTOs
     {
         [Required]
         public string Username { get; set; }
+        [Required]
+        public string KnownAs { get; set; }
+        [Required]
+        public string Gender { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
+        public string Country { get; set; }
+        [Required]
+        public DateTime DateOfBirth { get; set; }
+        [Required]
+        public string Batch { get; set; }
+        [Required]
+        public string StudentId { get; set; }
+        [Required]
+        public bool Alumni { get; set; }
+
         [Required]
         [StringLength(8, MinimumLength =4)]
         public string Password { get; set; }
