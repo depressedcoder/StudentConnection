@@ -1,7 +1,7 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { Blog } from 'src/app/_models/blog';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
 
@@ -15,6 +15,7 @@ export class MemberDetailComponent implements OnInit {
   member:Member;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  blogs: Blog[];
 
   constructor(private memberService:MembersService, private route: ActivatedRoute) { }
 
@@ -44,11 +45,20 @@ export class MemberDetailComponent implements OnInit {
 
     return imageUrls;
   }
+  getBlogs():Blog[] {
+    const sampleBlogs = [];
+    for(const v of this.member.blogs)
+    {
+      sampleBlogs.push(v);
+    }
+    return sampleBlogs;
+  }
 
   loadMember() {
     this.memberService.getMember(this.route.snapshot.paramMap.get('username') as string).subscribe(member => {
       this.member = member;
       this.galleryImages = this.getImages();
+      this.blogs = this.getBlogs();
     })
   }
 }

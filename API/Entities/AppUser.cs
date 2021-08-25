@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using API.Extentions;
 
 namespace API.Entities
 {
@@ -24,9 +23,6 @@ namespace API.Entities
         public bool IsAlumni { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public string Interest { get; set; }
-        // public int GetAge()
-        // {
-        //     return DateOfBirth.CalculateAge();
-        // }
+        public ICollection<Blog> Blogs { get; set; }
     }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Blog } from '../_models/blog';
 import { Member } from '../_models/member';
 
 @Injectable({
@@ -46,5 +47,16 @@ export class MembersService {
 
   deletePhoto(photoId: number){
     return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
+  }
+  addBlog(blogModel:any)
+  {
+    return this.http.post<Blog>(this.baseUrl + 'users/add-blog/', blogModel).pipe(
+      map((response: Blog) => {
+        const blog = response;
+        if(blog) {
+          
+        }
+      })
+    )
   }
 }

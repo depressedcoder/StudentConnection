@@ -13,3 +13,14 @@
     background-color: #fff;
     border-top: none;
 }
+.post-preview > .post-title {
+    font-size: 2.25rem;
+    margin-top: 2px;
+    margin-bottom: 0.625rem;
+}
+.post-preview > .post-meta {
+    font-size: 1.125rem;
+    font-style: italic;
+    margin-top: 0;
+    color: #6c757d;
+}

@@ -37,6 +37,7 @@ namespace API.Data
         {
             return await _context.Users
                 .Include(p => p.Photos)
+                .Include(b => b.Blogs)
                 .ToListAsync();
         }
 
@@ -49,6 +50,7 @@ namespace API.Data
         {
             return await _context.Users
                 .Include(p => p.Photos)
+                .Include(b => b.Blogs)
                 .SingleOrDefaultAsync(x => x.UserName == username);
         }
 
@@ -60,6 +62,15 @@ namespace API.Data
         public void Update(AppUser user)
         {
             _context.Entry(user).State = EntityState.Modified;
+        }
+        public async Task<bool> BlogUpdate(int blogId, BlogDto blogDto)
+        {
+            var dbBlogs = _context.Blogs.FirstOrDefault(s => s.Id.Equals(blogId));
+
+            dbBlogs.Title = blogDto.Title;
+            dbBlogs.Description = blogDto.Description;
+
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

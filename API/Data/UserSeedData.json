@@ -19,7 +19,8 @@
                 "Url": "https://randomuser.me/api/portraits/women/89.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Irma",
@@ -41,7 +42,8 @@
                 "Url": "https://randomuser.me/api/portraits/women/84.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Reyna",
@@ -63,7 +65,8 @@
                 "Url": "https://randomuser.me/api/portraits/women/86.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Ila",
@@ -85,7 +88,8 @@
                 "Url": "https://randomuser.me/api/portraits/women/72.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Naomi",
@@ -107,7 +111,8 @@
                 "Url": "https://randomuser.me/api/portraits/women/48.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Sims",
@@ -129,7 +134,8 @@
                 "Url": "https://randomuser.me/api/portraits/men/26.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Holt",
@@ -151,7 +157,8 @@
                 "Url": "https://randomuser.me/api/portraits/men/81.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Rose",
@@ -173,7 +180,8 @@
                 "Url": "https://randomuser.me/api/portraits/men/25.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Scott",
@@ -195,7 +203,8 @@
                 "Url": "https://randomuser.me/api/portraits/men/72.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     },
     {
         "UserName": "Hardin",
@@ -217,6 +226,7 @@
                 "Url": "https://randomuser.me/api/portraits/men/19.jpg",
                 "IsMain": true
             }
-        ]
+        ],
+        "Blogs":[]
     }
 ]

@@ -1,3 +1,4 @@
+import { Blog } from "./blog";
 import { Photo } from "./photo";
 
 export interface Member {
@@ -18,5 +19,6 @@ export interface Member {
     isAlumni: boolean;
     photos: Photo[];
     interest: string;
+    blogs: Blog[];
 }
 

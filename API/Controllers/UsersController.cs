@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
@@ -56,6 +55,8 @@ namespace API.Controllers
 
             return BadRequest("Failed to update user");
         }
+
+        #region Photo Crud
 
         [HttpPost("add-photo")]
         public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
@@ -128,6 +129,59 @@ namespace API.Controllers
 
             return BadRequest("Failed to delete the photo");
         }
+        
+        #endregion
 
+        #region BLog Crud
+
+        [HttpPost("add-blog")]
+        public async Task<ActionResult<BlogDto>> AddBlog(BlogDto blogDto)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
+            if(!string.IsNullOrEmpty(blogDto.Title) && !string.IsNullOrEmpty(blogDto.Description))
+            {
+                var blog = new Blog
+                {
+                    Title = blogDto.Title,
+                    Description = blogDto.Description
+                };
+
+                user.Blogs.Add(blog);
+
+                if(await _userRepository.SaveAllAsync())
+                {
+                    return CreatedAtRoute("GetUser", new {username = user.UserName},_mapper.Map<BlogDto>(blog));
+                }
+                return BadRequest("Problem Adding Photo");
+            }
+            return BadRequest("Empty Blogs can't be added.");
+        }
+
+        [HttpDelete("delete-blog/{blogId}")]
+        public async Task<ActionResult> DeleteBlog(int blogId)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
+            var blog = user.Blogs.FirstOrDefault(x => x.Id == blogId);
+
+            if(blog == null) return NotFound();
+
+            user.Blogs.Remove(blog);
+
+            if(await _userRepository.SaveAllAsync()) return Ok();
+
+            return BadRequest("Failed to delete the Blog");
+        }
+
+        [HttpPut("update-blog/{blogId}")]
+        public async Task<ActionResult> BlogUpdate(int blogId,[FromBody] BlogDto blogDto)
+        {
+            if (await _userRepository.BlogUpdate(blogId,blogDto)) return NoContent();
+
+            return BadRequest("Failed to update Blog");
+        }
+
+        #endregion
     }
 }
