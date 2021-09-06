@@ -2,6 +2,9 @@
     <div class="col-4">
         <div class="card">
             <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" class="card-img-top img-thumbnail">
+            <div *ngIf="member.isAlumni" class="alumniSticker mb-3">
+                <strong>Alumni</strong>
+            </div>
             <div class="card-body">
                 <div>
                     <strong>Name:</strong>
@@ -26,7 +29,7 @@
             </div>
             <div class="card-footer">
                 <div class="btn-group d-flex">
-                    <button class="btn btn-dark">Like</button>
+                    <button class="btn btn-dark" *ngIf="false">Like</button>
                     <button class="btn btn-success">Message</button>
                 </div>
             </div>

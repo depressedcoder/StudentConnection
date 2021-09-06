@@ -22,7 +22,7 @@ namespace API.DTOs
         [Required]
         public string StudentId { get; set; }
         [Required]
-        public bool Alumni { get; set; }
+        public bool IsAlumni { get; set; }
 
         [Required]
         [StringLength(8, MinimumLength =4)]
