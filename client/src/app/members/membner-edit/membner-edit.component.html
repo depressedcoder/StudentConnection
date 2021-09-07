@@ -10,6 +10,9 @@
     <div class="col-4">
         <div class="card">
             <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" class="card-img-top img-thumbnail">
+            <div *ngIf="member.isAlumni" class="alumniSticker mb-3">
+                <strong>Alumni</strong>
+            </div>
             <div class="card-body">
                 <div>
                     <strong>Name:</strong>
@@ -28,8 +31,8 @@
                     <p>{{member.age}}</p>
                 </div>
                 <div>
-                    <strong>Last Active:</strong>
-                    <p>{{member.lastActive | date:'medium'}}</p>
+                    <strong>Student Id:</strong>
+                    <p>{{member.studentId}}</p>
                 </div>
             </div>
             <div class="card-footer">
