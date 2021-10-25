@@ -26,6 +26,15 @@
                     <strong>Student Id:</strong>
                     <p>{{member.studentId}}</p>
                 </div>
+                <div>
+                    <strong>Last Active:</strong>
+                    <p>{{member.lastActive | timeago}}</p>
+                </div>
+                <div>
+                    <strong>Member Since:</strong>
+                    <p>{{member.created | date: 'longDate'}}</p>
+                </div>
+
             </div>
             <div class="card-footer">
                 <div class="btn-group d-flex">
