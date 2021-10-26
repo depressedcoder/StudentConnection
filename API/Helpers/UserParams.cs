@@ -1,23 +1,12 @@
 namespace API.Helpers
 {
-    public class UserParams
+    public class UserParams : PaginationParams
     {
-        private const int MaxPageSize = 50;
-        public int PageNumber { get; set; } = 1;
-        private int _pageSize = 10;
-
-        public int PageSize
-        {
-            get => _pageSize;
-            set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value; 
-        }
-
         public string CurrentUserName { get; set; }
         public string Gender { get; set; }
         public int MinAge { get; set; } = 20;
         public int MaxAge { get; set; } = 150;
         public string KnownAs { get; set; }
         public string OrderBy { get; set; } = "lastActive";
-
     }
 }

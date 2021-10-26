@@ -42,11 +42,22 @@ namespace API.Controllers
 
             return Ok(users);
         }
-
+        
         [HttpGet("{username}",Name = "GetUser")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
             return await _userRepository.GetMemberAsync(username);
+        }
+
+        
+        [HttpGet("BatchMates")]
+        public async Task<ActionResult<IEnumerable<LikeDto>>> BatchMates()
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            
+            var users = await _userRepository.GetMembersByBatch(user.UserName,user.Batch);
+
+            return Ok(users);
         }
 
         [HttpPut]

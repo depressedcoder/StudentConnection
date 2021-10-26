@@ -27,6 +27,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MemberBatchMatesComponent } from './members/member-batch-mates/member-batch-mates.component';
 
 @NgModule({ 
   declarations: [
@@ -45,7 +46,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     MembnerEditComponent,
     PhotoEditorComponent,
     TextInputComponent,
-    DateInputComponent
+    DateInputComponent,
+    MemberBatchMatesComponent
   ],
   imports: [
     BrowserModule,

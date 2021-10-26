@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
+using API.Extentions;
 using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
@@ -54,6 +55,28 @@ namespace API.Data
             return await PagedList<MemberDto>.CreateAsync(query.ProjectTo<MemberDto>(_mapper
                 .ConfigurationProvider).AsNoTracking(),
                     userParams.PageNumber, userParams.PageSize);
+        }
+        public async Task<IEnumerable<LikeDto>> GetMembersByBatch(string username,string batchName)
+        {
+            var users = _context.Users
+                .Where(u => u.UserName != username && u.Batch == batchName)
+                .AsQueryable();
+
+            // IEnumerable<LikeDto> ll = new IEnumerable<LikeDto>();
+            // foreach(var user in users)
+            // {
+
+            // }
+            return await users.Select(user => new LikeDto{
+                Username = user.UserName,
+                KnownAs = user.KnownAs,
+                Age = user.DateOfBirth.CalculateAge(),
+                PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain).Url,
+                City = user.City,
+                Id = user.Id
+            }).ToListAsync();  
+
+            //return new <IEnumerable<LikeDto>>();   
         }
 
         public async Task<IEnumerable<AppUser>> GetUserAsync()

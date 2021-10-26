@@ -5,6 +5,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
+import { MemberBatchMatesComponent } from './members/member-batch-mates/member-batch-mates.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MembnerEditComponent } from './members/membner-edit/membner-edit.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
       {path: 'members/:username', component: MemberDetailComponent},
       {path: 'member/edit', component: MembnerEditComponent, canDeactivate: [PreventUnsavedChangesGuard]},
       {path: 'lists', component: ListsComponent},
+      {path: 'batchMates', component: MemberBatchMatesComponent},
       {path: 'messages', component: MessagesComponent},
     ]
   },

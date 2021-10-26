@@ -5,9 +5,7 @@
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
-            "request": "attach",
-            "program": "${workspaceFolder}/API/bin/Debug/net5.0/API.dll",
-            "cwd": "${workspaceFolder}/API"
+            "request": "attach"
         },
         {
             "type": "chrome",
