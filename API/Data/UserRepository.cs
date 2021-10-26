@@ -56,27 +56,21 @@ namespace API.Data
                 .ConfigurationProvider).AsNoTracking(),
                     userParams.PageNumber, userParams.PageSize);
         }
-        public async Task<IEnumerable<LikeDto>> GetMembersByBatch(string username,string batchName)
+        public async Task<IEnumerable<BatchMateDto>> GetMembersByBatch(string username,string batchName)
         {
             var users = _context.Users
                 .Where(u => u.UserName != username && u.Batch == batchName)
                 .AsQueryable();
 
-            // IEnumerable<LikeDto> ll = new IEnumerable<LikeDto>();
-            // foreach(var user in users)
-            // {
-
-            // }
-            return await users.Select(user => new LikeDto{
+            return await users.Select(user => new BatchMateDto{
                 Username = user.UserName,
                 KnownAs = user.KnownAs,
                 Age = user.DateOfBirth.CalculateAge(),
                 PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain).Url,
                 City = user.City,
-                Id = user.Id
-            }).ToListAsync();  
-
-            //return new <IEnumerable<LikeDto>>();   
+                Id = user.Id,
+                Batch = user.Batch
+            }).ToListAsync();    
         }
 
         public async Task<IEnumerable<AppUser>> GetUserAsync()

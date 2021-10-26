@@ -51,7 +51,7 @@ namespace API.Controllers
 
         
         [HttpGet("BatchMates")]
-        public async Task<ActionResult<IEnumerable<LikeDto>>> BatchMates()
+        public async Task<ActionResult<IEnumerable<BatchMateDto>>> BatchMates()
         {
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
             
