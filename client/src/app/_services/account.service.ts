@@ -21,7 +21,11 @@ export class AccountService {
       map((response: User) => {
         const user = response;
         if(user) {
+          user.roles = [];
+          const roles = this.getDecodedToken(user.token).role;
+          Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
           localStorage.setItem('user', JSON.stringify(user));
+
           this.currentUserSource.next(user);
         }
       })
@@ -29,7 +33,6 @@ export class AccountService {
   }
 
   register(model: any) {
-    debugger;
     return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
       map(user => {
         if(user) {
@@ -46,6 +49,10 @@ export class AccountService {
       this.currentUserSource.next();
     }
     else{
+      user.roles = [];
+      const roles = this.getDecodedToken(user.token).role;
+      Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
+      
       this.currentUserSource.next(user);
     }
   }
@@ -53,5 +60,9 @@ export class AccountService {
   logout() {
     localStorage.removeItem('user');
     this.currentUserSource.next();
+  }
+
+  getDecodedToken(token:string){
+    return JSON.parse(atob(token.split('.')[1]));
   }
 }
