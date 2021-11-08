@@ -22,6 +22,7 @@
     "@contentful/rich-text-html-renderer": "^15.2.0",
     "@kolkov/angular-editor": "^1.2.0",
     "@kolkov/ngx-gallery": "^1.2.3",
+    "@microsoft/signalr": "^5.0.11",
     "@schematics/angular": "^9.1.0",
     "@tinymce/tinymce-angular": "^4.2.4",
     "bootstrap": "4.1.1",
